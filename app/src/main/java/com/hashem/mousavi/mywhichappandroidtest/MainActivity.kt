@@ -39,6 +39,10 @@ class MainActivity : Activity() {
         val rnd = Random(System.currentTimeMillis())
 
         circleBtn.click {
+            if (animating) {
+                it.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake))
+                return@click
+            }
             var count = rnd.nextInt(0, 50) + 1
 
             switcher.setCurrentText(count.toString())
@@ -66,6 +70,8 @@ class MainActivity : Activity() {
 
             })
 
+            animating = true
+
         }
 
 
@@ -87,6 +93,7 @@ class MainActivity : Activity() {
         }
     }
 
+    var animating = false
     private fun startTransition(view: View) {
         view.animate()
             .setDuration(2000)
@@ -108,6 +115,7 @@ class MainActivity : Activity() {
                     frame?.removeView(view)
                     if (view.tag == 0) {
                         switcher?.hide()
+                        animating = false
                     }
                     switcher.setText(view.tag.toString())
 
