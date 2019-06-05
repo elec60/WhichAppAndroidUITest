@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <TextSwitcher
+            android:id="@+id/switcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"/>
+
+    <View
+            android:id="@+id/circleBtn"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:stateListAnimator="@drawable/button_state_selector"
+            android:background="@drawable/circle_selector"
+            android:layout_gravity="center"
+            tools:targetApi="lollipop"/>
+
+</FrameLayout>
